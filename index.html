@@ -18,14 +18,16 @@
 				<form name="instaForm" ng-submit="submitForm()">
 					<div class="row collapse">
 						<div class="small-8 columns">
-							<input type="text" placeholder="Tags" ng-model="formData.tagInput" name="tag-input" required>
+							<input type="text" placeholder="Enter a tag" ng-model="formData.tagInput" name="tag-input" required autofocus>
 						</div>
 						<div class="small-4 columns">
 							<button type="submit" class="button postfix">Go</button>
+							<!-- Clear here -->
 						</div>
 					</div>
-
 				</form>
+
+				<!-- message for user -->
 			</div>
 		</div>
 	</div>
