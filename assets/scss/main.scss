@@ -1,0 +1,124 @@
+// All Sass tools and helpers.
+@import "bourbon/_bourbon";
+@import url(http://fonts.googleapis.com/css?family=Raleway:400,700,300);
+
+body {
+	background: whitesmoke;
+	font-family: 'Raleway', sans-serif;
+}
+
+.page {
+	width: 960px;
+	margin: 100px auto;
+	background: white;
+	border: 3px solid black;
+}
+
+.header {
+	border-bottom: 3px solid black;
+	text-align: center;
+}
+
+.logo {
+	border-right: 3px solid black;
+	padding: 10px;
+}
+
+.banner img {
+	margin-top: 20px;
+}
+
+.words {
+	padding: 30px 20px 20px;
+}
+
+.content {
+	padding: 30px 20px 20px;
+}
+
+.answer {
+	color: #3072d1;
+	font-weight: 700;
+}
+
+/* when showing the thing */
+.result.ng-hide-remove, .words.ng-hide-remove {
+	-webkit-animation-duration: 0.4s;
+	animation-duration: 0.4s;
+	-webkit-animation-fill-mode: both;
+	animation-fill-mode: both;
+	-webkit-animation-name: fadeIn;
+	animation-name: fadeIn;
+}
+
+.result.ng-show-add, .content.ng-show-add {
+	-webkit-animation-duration: 0.4s;
+	animation-duration: 0.4s;
+	-webkit-animation-fill-mode: both;
+	animation-fill-mode: both;
+	-webkit-animation-name: fadeIn;
+	animation-name: fadeIn;
+}
+
+/* when hiding the thing */
+.alert-box.ng-leave {
+	-webkit-animation-duration: 0.2s;
+	animation-duration: 0.2s;
+	-webkit-animation-fill-mode: both;
+	animation-fill-mode: both;
+	-webkit-animation-name: fadeOut;
+	animation-name: fadeOut;
+}
+
+/* when showing the thing */
+.alert-box.ng-enter {
+	-webkit-animation-duration: 0.4s;
+	animation-duration: 0.4s;
+	-webkit-animation-fill-mode: both;
+	animation-fill-mode: both;
+	-webkit-animation-name: fadeIn;
+	animation-name: fadeIn;
+}
+
+/* ANIMATIONS (FROM ANIMATE.CSS) */
+@-webkit-keyframes fadeOut {
+	0% {
+		opacity: 1;
+	}
+
+	100% {
+		opacity: 0;
+	}
+}
+
+@keyframes fadeOut {
+	0% {
+		opacity: 1;
+	}
+
+	100% {
+		opacity: 0;
+	}
+}
+
+@-webkit-keyframes fadeIn {
+	0% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 1;
+	}
+}
+
+@keyframes fadeIn {
+	0% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 1;
+	}
+}
+
+
