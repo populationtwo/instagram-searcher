@@ -5,12 +5,49 @@
 	<title>Angular Instagram Searcher</title>
 	<link rel="icon" type="image/ico" href="favicon.ico">
 	<link rel="stylesheet" type="text/css" href=" https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.0/css/foundation.min.css">
-	<link rel="stylesheet" href="assets/css/main.css" />
+	<!--<link rel="stylesheet" href="assets/css/main.css" />-->
 </head>
 <body>
 
-<div class="page" ng-app="" ng-controller="">
+<div class="page" ng-app="myApp" ng-controller="searchController">
+	<div class="intro">
+		<div class="row">
+			<div class="columns large-12">
+				<h1>Instagram Searcher</h1>
 
+				<form name="instaForm" ng-submit="submitForm()">
+					<div class="row collapse">
+						<div class="small-8 columns">
+							<input type="text" placeholder="Tags" ng-model="formData.tagInput" name="tag-input" required>
+						</div>
+						<div class="small-4 columns">
+							<button type="submit" class="button postfix">Go</button>
+						</div>
+					</div>
+
+				</form>
+			</div>
+		</div>
+	</div>
+	<div class="insta-results" ng-if="instaForm.$valid && instaForm.$submitted">
+		<div class="row">
+			<div class="columns large-12">
+				<p>Seaching Instagram for photos taggesd with {{formData.tagInput}}</p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="columns large-12">
+				<ul class="small-block-grid-3">
+					<li><img src="http://lorempixel.com/400/400/city/1" alt="" /></li>
+					<li><img src="http://lorempixel.com/400/400/city/2" alt="" /></li>
+					<li><img src="http://lorempixel.com/400/400/city/3" alt="" /></li>
+					<li><img src="http://lorempixel.com/400/400/city/4" alt="" /></li>
+					<li><img src="http://lorempixel.com/400/400/city/5" alt="" /></li>
+					<li><img src="http://lorempixel.com/400/400/city/6" alt="" /></li>
+				</ul>
+			</div>
+		</div>
+	</div>
 </div>
 
 <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
