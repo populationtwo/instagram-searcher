@@ -39,13 +39,9 @@
 		</div>
 		<div class="row">
 			<div class="columns large-12">
+
 				<ul class="small-block-grid-3">
-					<li><img src="http://lorempixel.com/400/400/city/1" alt="" /></li>
-					<li><img src="http://lorempixel.com/400/400/city/2" alt="" /></li>
-					<li><img src="http://lorempixel.com/400/400/city/3" alt="" /></li>
-					<li><img src="http://lorempixel.com/400/400/city/4" alt="" /></li>
-					<li><img src="http://lorempixel.com/400/400/city/5" alt="" /></li>
-					<li><img src="http://lorempixel.com/400/400/city/6" alt="" /></li>
+					<li ng-repeat="instaImage in instaImages">{{instaImage.user.username}}</li>
 				</ul>
 			</div>
 		</div>

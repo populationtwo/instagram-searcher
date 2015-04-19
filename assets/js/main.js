@@ -16,8 +16,9 @@ angular.module( 'myApp', [] )
 			}
 			//console.log( 'json request' );
 			$http.jsonp( url, config )
-				.success( function () {
+				.success( function (results) {
 					console.log( 'success' );
+					$scope.instaImages = results.data
 				} )
 				.error( function () {
 					console.log( 'error' );
