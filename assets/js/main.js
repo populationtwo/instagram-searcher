@@ -11,17 +11,18 @@ angular.module( 'myApp', [] )
 				'params': {
 					'client_id': clientId,
 					'callback' : 'JSON_CALLBACK',
-					'count'    : 20
+					'count'    : 15
 				}
 			}
 			//console.log( 'json request' );
 			$http.jsonp( url, config )
 				.success( function (results) {
-					console.log( 'success' );
-					$scope.instaImages = results.data
+					console.log( results.data );
+					$scope.instaImages = results.data;
+					$scope.message = "We found " + results.data.length + " results for " + tag;
 				} )
 				.error( function () {
-					console.log( 'error' );
+					$scope.message = "Not found.";
 				} );
 
 		};
@@ -31,10 +32,11 @@ angular.module( 'myApp', [] )
 		$scope.submitForm = function () {
 			console.log( 'submit' )
 			console.log( $scope.formData.tagInput );
-			searchByTag();
+			var tag = $scope.formData.tagInput;
+			searchByTag( tag );
+			$scope.message = "Searching Instagram for photos taggesd with " + tag;
 
 		}
-
 	} );
 
 

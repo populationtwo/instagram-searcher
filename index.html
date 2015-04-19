@@ -26,22 +26,21 @@
 						</div>
 					</div>
 				</form>
+				{{message}}
 
-				<!-- message for user -->
 			</div>
 		</div>
 	</div>
 	<div class="insta-results" ng-if="instaForm.$valid && instaForm.$submitted">
-		<div class="row">
-			<div class="columns large-12">
-				<p>Seaching Instagram for photos taggesd with {{formData.tagInput}}</p>
-			</div>
-		</div>
+
 		<div class="row">
 			<div class="columns large-12">
 
 				<ul class="small-block-grid-3">
-					<li ng-repeat="instaImage in instaImages">{{instaImage.user.username}}</li>
+					<li ng-repeat="instaImage in instaImages">{{instaImage.user.username}}
+						<img ng-src="{{instaImage.images.standard_resolution.url}}" alt="" />
+
+					</li>
 				</ul>
 			</div>
 		</div>
