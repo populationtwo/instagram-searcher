@@ -4,62 +4,47 @@
 	<meta charset="UTF-8">
 	<title>Angular Instagram Searcher</title>
 	<link rel="icon" type="image/ico" href="favicon.ico">
-	<link rel="stylesheet" type="text/css" href=" https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.0/css/foundation.min.css">
-	<!--<link rel="stylesheet" href="assets/css/main.css" />-->
+	<link rel="stylesheet" href="assets/css/main.css" />
 </head>
 <body>
 
 <div class="page" ng-app="myApp" ng-controller="searchController">
 	<div class="intro">
-		<div class="row">
-			<div class="columns large-12">
-				<h1>Instagram Searcher</h1>
+		<header>
+			<h1>Instagram Searcher</h1>
 
-				<form name="instaForm" ng-submit="submitForm()">
-					<div class="row collapse">
-						<div class="medium-8 columns medium-centered">
-							<input type="text" placeholder="Enter a tag" ng-model="formData.tagInput" name="tag-input" required autofocus>
-						</div>
-						<div class="medium-8 columns medium-centered">
-							<button type="submit" class="button small">Submit</button>
-							<button ng-if="instaForm.$submitted" type="reset" class="button small secondary" ng-click="clear()">
-								Clear
-							</button>
-						</div>
-					</div>
-				</form>
-				{{message}}
-			</div>
+		</header>
+
+		<div class="intro-content">
+
+			<form name="instaForm" ng-submit="submitForm()">
+				<input type="text" placeholder="Enter a tag" ng-model="formData.tagInput" name="tag-input" required autofocus>
+
+				<div class="button-wrap">
+
+					<button type="submit" class="button small">Submit</button>
+					<button ng-if="instaForm.$submitted" type="reset" class="button small secondary" ng-click="clear()">
+						Clear
+					</button>
+				</div>
+
+			</form>
+			<p class="result-message">{{message}}</p>
 		</div>
+
 	</div>
 	<div class="insta-results" ng-if="instaForm.$valid && instaForm.$submitted">
-
-		<div class="row">
-			<div class="columns large-12">
-
-				<ul class="small-block-grid-3">
-					<li ng-repeat="instaImage in instaImages">
-
-
-						<a ng-href="{{instaImage.link}}" target="_blank">
-							<img ng-src="{{instaImage.images.standard_resolution.url}}" alt="" />
-						</a>
-
-					</li>
-				</ul>
-			</div>
+		<div ng-repeat="instaImage in instaImages" class="block">
+			<a ng-href="{{instaImage.link}}" target="_blank">
+				<img ng-src="{{instaImage.images.standard_resolution.url}}" alt="" />
+			</a>
 		</div>
 	</div>
 </div>
 
 <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.1/js/vendor/modernizr.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.1/js/foundation.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.15/angular-animate.min.js"></script>
-<script>
-	$( document ).foundation();
-</script>
 <script src="assets/js/main.js"></script>
 
 </body>
