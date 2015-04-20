@@ -1,6 +1,7 @@
 angular.module( 'myApp', [] )
 	.controller( 'searchController', function ($scope, $http) {
 
+		$scope.message = null;
 
 		var searchByTag = function (tag) {
 
@@ -34,12 +35,14 @@ angular.module( 'myApp', [] )
 			console.log( $scope.formData.tagInput );
 			var tag = $scope.formData.tagInput;
 			searchByTag( tag );
-			$scope.message = "Searching Instagram for photos taggesd with " + tag;
+			$scope.message = "Searching Instagram for photos tagged with " + tag;
 
+		};
+
+		$scope.clear = function () {
+			console.log( 'clear' );
+			$scope.formData = {};
+			$scope.instaImage = {};
+			$scope.message = null;
 		}
 	} );
-
-
-//CLIENT INFO
-//CLIENT ID	416e81a93f0d4cb689ded7e74749bc86
-//CLIENT SECRET	8a96f9c5962e435c87f34acf5c4ce4cd

@@ -17,17 +17,18 @@
 
 				<form name="instaForm" ng-submit="submitForm()">
 					<div class="row collapse">
-						<div class="small-8 columns">
+						<div class="medium-8 columns medium-centered">
 							<input type="text" placeholder="Enter a tag" ng-model="formData.tagInput" name="tag-input" required autofocus>
 						</div>
-						<div class="small-4 columns">
-							<button type="submit" class="button postfix">Go</button>
-							<!-- Clear here -->
+						<div class="medium-8 columns medium-centered">
+							<button type="submit" class="button small">Submit</button>
+							<button ng-if="instaForm.$submitted" type="reset" class="button small secondary" ng-click="clear()">
+								Clear
+							</button>
 						</div>
 					</div>
 				</form>
 				{{message}}
-
 			</div>
 		</div>
 	</div>
@@ -37,8 +38,12 @@
 			<div class="columns large-12">
 
 				<ul class="small-block-grid-3">
-					<li ng-repeat="instaImage in instaImages">{{instaImage.user.username}}
-						<img ng-src="{{instaImage.images.standard_resolution.url}}" alt="" />
+					<li ng-repeat="instaImage in instaImages">
+
+
+						<a ng-href="{{instaImage.link}}" target="_blank">
+							<img ng-src="{{instaImage.images.standard_resolution.url}}" alt="" />
+						</a>
 
 					</li>
 				</ul>
