@@ -12,15 +12,21 @@ angular.module( 'myApp', [] )
 				'params': {
 					'client_id': clientId,
 					'callback' : 'JSON_CALLBACK',
-					'count'    : 15
+					'count'    : 16
 				}
 			}
 			//console.log( 'json request' );
 			$http.jsonp( url, config )
 				.success( function (results) {
-					console.log( results.data );
-					$scope.instaImages = results.data;
-					$scope.message = "We found " + results.data.length + " results for " + tag;
+					var dataLength = results.data.length;
+					var resultData = results.data;
+					if (dataLength > 0) {
+						console.log( resultData );
+						$scope.instaImages = resultData;
+						$scope.message = "We found " + dataLength + " results for " + tag;
+					} else {
+						$scope.message = "No results.";
+					}
 				} )
 				.error( function () {
 					$scope.message = "Not found.";
@@ -31,12 +37,11 @@ angular.module( 'myApp', [] )
 		$scope.formData = {};
 
 		$scope.submitForm = function () {
-			console.log( 'submit' )
+			console.log( 'submit' );
 			console.log( $scope.formData.tagInput );
 			var tag = $scope.formData.tagInput;
 			searchByTag( tag );
 			$scope.message = "Searching Instagram for photos tagged with " + tag;
-
 		};
 
 		$scope.clear = function () {
@@ -44,5 +49,8 @@ angular.module( 'myApp', [] )
 			$scope.formData = {};
 			$scope.instaImage = {};
 			$scope.message = null;
+			$scope.instaForm.$submitted = false;
 		}
 	} );
+
+//TODO: Add ng animation.
