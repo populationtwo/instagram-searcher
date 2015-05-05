@@ -15,9 +15,14 @@
 
 		</header>
 
+		<div ng-repeat="tag in tagData">
+			{{tag}}
+		</div>
+
 		<div class="intro-content">
 
 			<form name="instaForm" ng-submit="submitForm()">
+
 				<input type="text" placeholder="Enter a tag" ng-model="formData.tagInput" name="tag-input" required autofocus>
 
 				<div class="button-wrap">

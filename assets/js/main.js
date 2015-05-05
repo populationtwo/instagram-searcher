@@ -1,7 +1,9 @@
 angular.module( 'myApp', [] )
+
 	.controller( 'searchController', function ($scope, $http) {
 
 		$scope.message = null;
+		var tagArr = [];
 
 		var searchByTag = function (tag) {
 
@@ -21,7 +23,7 @@ angular.module( 'myApp', [] )
 					var dataLength = results.data.length;
 					var resultData = results.data;
 					if (dataLength > 0) {
-						console.log( resultData );
+						//console.log( resultData );
 						$scope.instaImages = resultData;
 						$scope.message = "We found " + dataLength + " results for " + tag;
 					} else {
@@ -33,19 +35,26 @@ angular.module( 'myApp', [] )
 				} );
 
 		};
-
+		$scope.tagData = tagArr;
 		$scope.formData = {};
 
 		$scope.submitForm = function () {
-			console.log( 'submit' );
-			console.log( $scope.formData.tagInput );
+			//console.log( 'submit' );
+			//console.log( $scope.formData.tagInput );
 			var tag = $scope.formData.tagInput;
 			searchByTag( tag );
 			$scope.message = "Searching Instagram for photos tagged with " + tag;
+
+			// store searched tags in local storage
+			tagArr.push(tag);
+			localStorage["tagArr"] = JSON.stringify(tagArr);
+
+			console.log( JSON.parse(localStorage["tagArr"]));
+
 		};
 
 		$scope.clear = function () {
-			console.log( 'clear' );
+			//console.log( 'clear' );
 			$scope.formData = {};
 			$scope.instaImage = {};
 			$scope.message = null;
